@@ -1,0 +1,20 @@
+
+RewriteOptions inherit
+# Ativar a engine de reescrita
+RewriteEngine on
+ 
+# Se NÃO for um arquivo executar as regras
+RewriteCond %{REQUEST_FILENAME} !-f
+ 
+# Se NÃO for um diretório executar as regras
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Regras
+RewriteRule ^principal/$ 			index.php 				[L,NC]
+RewriteRule ^programacao/$ 			programacaomenu.php 	[L,NC]
+RewriteRule ^inscricoes\/?$			inscricoesmenu.php		[L,NC]
+RewriteRule ^inscricoes\/(.*)$		inscricoesmenu.php?m=$1 [L,NC]
+RewriteRule ^submissao/(.*)$		submissaomenu.php	 	[L,NC]
+RewriteRule ^galeria/$	 			galeriamenu.php 		[L,NC]
+RewriteRule ^contato/$ 				contatomenu.php			[L,NC]
+RewriteRule ^contato/(.*)$ 				contatomenu.php?m=$1	[L,NC]
