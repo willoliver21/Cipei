@@ -104,10 +104,11 @@ $row_dados = mysqli_fetch_assoc($dados);
 
 
 								</div>
+								<div class="card">
+								<div class="card-body">
 								<div class="panel-body">
 									<h3> Trabalhos: </h3>
-									<hr>
-									<ul style="font-style: italic; height: 30px; line-height: 30px; vertical-align: middle;">
+									<p style="font-style: italic; height: 30px; line-height: 30px; vertical-align: middle;">
 										<?php
 										$query = "SELECT DISTINCT t.id as idTrabalho, t.titulo as tituloTrabalho
 										FROM autor_usuario au
@@ -130,8 +131,10 @@ $row_dados = mysqli_fetch_assoc($dados);
 											<?php
 										}
 										?>
-									</ul>
+									</p>
 								</div>
+							</div>
+							</div>
 								<br clear="all">
 							</div>
 						</div>
