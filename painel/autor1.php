@@ -100,96 +100,47 @@ $row_dados = mysqli_fetch_assoc($dados);
 		  		<div class="col-md-10">
 		  			<div class="content-box-large col-md-12">
 		  				<div class="panel-heading tirar-padding">
-							<!-- <div class="panel-title"><h1>Cadastrar Autores</h1></div> -->
-						</div>
-
-
-		<div class="card text-center">
-      <div class="card-header">
-        <h1>Cadastrar Autores</h1>
-        <br>
-      </div>
-        <div class="card-body">
-			           <table class="table table-condensed table-hover" data-wow-delay=".5s"> <!--tentei mudar várias linhas do bootstrap.css, por exemplo: linha 2273 do bootstrap.css "color: #3d9a97" e a linha 2286 "text-align: center;" nada acontece-->
-			               <thead>
-			                   <tr class="titulotable">
-			                       <th>Nome do Autor</th>
-			                       <th>Instituição</th>
-			                       <th>E-mail</th>
-			                   </tr>
-			               </thead>
-			               </table>
-			               <form class="form-horizontal" nome="cadastroautor" action="cadastroautor.php" method="POST" onsubmit="return ValidaForm()">
-			               <div id="origemArtigos">
-			               <table class="table table-condensed table-hover">
-			               <tbody>
-			                       <td>
-			                       		<input class="form-control" type="text" value="" name="autorArtigos[]" size="30" maxlenght="30" placeholder="Nome do Autor" id="txtAutor" required="" />
-                                   </td>
-			                       <td>
-			                            <input class="form-control" type="text" value="" name="instuicaoArtigos[]" size="30" maxlenght="30" placeholder="Instituição do Autor" required=""/>
-			                       </td>
-			                       <td>
-			                       		<input class="form-control" class="email" value="" type="text" placeholder="Email" onblur="validacaoEmailInsc(cadastroautor.emailArtigos[])" required="" size="30" name="emailArtigos[]" id="mail"/>
-			                       </td>
-			                       <td class="row">
-			                       	<button type="button" onclick="duplicarCamposArtigos();" id="btnMais" class="btn btn-color btn-perso"><i class="glyphicon glyphicon-plus"></i></button>
-                            </td>
-                            <td class="row">
-                              <button type="button" onclick="removerCamposArtigos(this);"id="btnMenos" class="btn btn-color btn-perso"><i class="glyphicon glyphicon-minus"></i></button>
-			                       </td>
-
-			               </tbody>
-
-
-			           </table>
-			           </div>
-			           <div ="row">
-					    	 <div id="destinoArtigos"></div>
-					    	 </div>
-			           <input class="btn btn-perso col-md-2 col-md-offset-5" type="submit" value="Cadastrar">
-			         </form> <!--table responsive-->
-        </div>
-
-    	</div>
-
-    	</br>
-
-		  			<!--	<div class="panel-body">
-		  				    <div class="col-md-4"></div>
-		  					<div class="col-md-4">
-		  					<form class="form-horizontal" action="cadastroautor.php" method="POST">
-											<div id="origemArtigos">
-											<div class="row">
-											<input type="text" value="Nome do Autor" name="autorArtigos[]" size="30" maxlenght="30" placeholder="Nome do Autor" id="txtAutor" required="" />
-											</div>
-											<div class="row">
-											<input type="text" value="Instituição" name="instuicaoArtigos[]" size="30" maxlenght="30" placeholder="Instituição do Autor" required=""/>
-											</div>
-											<div class="row">
-											<input class="email" value="Email" type="text" placeholder="Email" required="" name="emailArtigos[]" id="mail">
-											</div>
-											</br>
-											<div class="row">
-											<button type="button" onclick="duplicarCamposArtigos();" id="btnMais" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
-											<button type="button" onclick="removerCamposArtigos(this);"id="btnMenos" class="btn btn-primary"><i class="glyphicon glyphicon-minus"></i></button>
-											</div>
-											</div>
-											</br>
-
-											 </br>
-
-		  					    <input type="submit" value="Cadastrar">
-		  					</form>
-		  					</br>
-
-		  					</div>
-		  					<div class="col-md-4"></div>
-		  				</div>-->
-
+							         <div class="panel-title"><h1>Cadastrar Autores</h1></div>
+						  </div>
+              <div class="card text-center">
+                <div class="card-header">
+                  Featured
+                </div>
+                <div class="card-body">
+                  <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Handle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
 		  			</div>
 		  		</div>
-
 		  	</div>
 
 
