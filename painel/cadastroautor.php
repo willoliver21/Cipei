@@ -3,7 +3,6 @@
 error_reporting(0);
 include '../includes/conexao.php';
 
-session_start();
 
 if (isset($_SESSION['usuario']))
 {
@@ -24,16 +23,16 @@ for ($i = 0; $i < count($autor) ; $i++)
 {
 
 	$sql            = "INSERT INTO autor(nome, email, instituicao, status) VALUES('$autor[$i]', '$email[$i]', '$instituicao[$i]', 'Válido')";
-	$resultado      = mysql_query($sql);
+	$resultado      = mysqli_query($conexao, $sql);
 
-	$idAutor = mysql_insert_id();
+	$idAutor = mysqli_insert_id($conexao);
 
 
 	$sql            = "INSERT INTO autor_usuario(id_autor, id_usuario) VALUES('$idAutor', '$codigoUsuario')";
-	$resultado      = mysql_query($sql);
+	$resultado      = mysqli_query($conexao, $sql);
 
 }
-mysql_close($conexao);
+mysqli_close($conexao);
 header("Location: painel.php");
 
 ?>

@@ -6,7 +6,6 @@ include '../includes/conexao.php';
 ?>
 <?php
 
-session_start();
 
 if (isset($_SESSION['usuario']))
 {
@@ -22,8 +21,8 @@ $senha=$_POST['senha'];
 $nome=$_POST['nome'];
 $instituicao=$_POST['instituicao'];
 $email=$_POST['email'];
-$sql = mysql_query("UPDATE usuarios SET senha='{$senha}', nome='{$nome}', instituicao='{$instituicao}', email='{$email}' WHERE id='{$codigoUsuario}'");
+$sql = mysqli_query($conexao, "UPDATE usuarios SET senha='{$senha}', nome='{$nome}', instituicao='{$instituicao}', email='{$email}' WHERE id='{$codigoUsuario}'");
 
-mysql_close($conexao);
+mysqli_close($conexao);
 header("Location: perfil.php");
 ?>

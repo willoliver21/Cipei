@@ -4,7 +4,6 @@
 error_reporting(0);
 include '../includes/conexao.php';
 
-session_start();
 
 if (isset($_SESSION['usuario']))
 {
@@ -16,8 +15,8 @@ else
 	header("Location: ../login.php");
 }
 
-$dados = mysql_query("SELECT * FROM usuarios WHERE id = ".$codigoUsuario);
-$row_dados = mysql_fetch_assoc($dados);
+$dados = mysqli_query($conexao, "SELECT * FROM usuarios WHERE id = ".$codigoUsuario);
+$row_dados = mysqli_fetch_assoc($dados);
 ?>
 
 <html>
@@ -118,9 +117,9 @@ $row_dados = mysql_fetch_assoc($dados);
 										ORDER BY t.id DESC
 										";
 
-										$sql = mysql_query($query);
+										$sql = mysqli_query($conexao, $query);
 
-										while($r = mysql_fetch_assoc($sql))
+										while($r = mysqli_fetch_assoc($sql))
 										{
 											?>
 											<li style="list-style: azure;">

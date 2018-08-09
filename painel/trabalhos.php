@@ -2,7 +2,6 @@
 error_reporting(0);
 include '../includes/conexao.php';
 
-session_start();
 
 if (isset($_SESSION['usuario']))
 {
@@ -14,8 +13,8 @@ else
 	header("Location: login.php");
 }
 
-$dados = mysql_query("SELECT * FROM usuarios WHERE id = ".$codigoUsuario);
-$row_dados = mysql_fetch_assoc($dados);
+$dados = mysqli_query($conexao, "SELECT * FROM usuarios WHERE id = ".$codigoUsuario);
+$row_dados = mysqli_fetch_assoc($dados);
 
 $autorcheck       = $_POST['autorcheck'];
 
@@ -33,9 +32,10 @@ $linhaPesquisa = $_POST['linhaPesquisa'];
 
 
 $sql            = "INSERT INTO trabalho(titulo, resumo, palavrachave, status, tipo) VALUES('$titulo', '$resumo', '$chaves', 'Válido','Artigo')";
-$resultado      = mysql_query($sql);
+$resultado      = mysqli_query($conexao, $sql);
 
-$idTrabalho = mysql_insert_id();
+$idTrabalho = mysqli_insert_id($conexao);
+
 
 //for ($i = 0; $i < count($autor) ; $i++)
 //{
@@ -46,20 +46,21 @@ $idTrabalho = mysql_insert_id();
 //$resultado      = mysql_query($sql);
 
 //}
+
 foreach ($autorcheck as $value)
 {
 	$sql            = "INSERT INTO autor_trabalho(id_autor, id_trabalho) VALUES('$value', '$idTrabalho')";
-	$resultado      = mysql_query($sql);
-
-
-
+	$resultado      = mysqli_query($conexao, $sql);
+	echo $value;
+	exit;
 }
 
 
 foreach ($linhaPesquisa as $value)
 {
 	$sql            = "INSERT INTO artigo_linhaPesquisa(id_artigo, id_linhaPesquisa) VALUES($idTrabalho, $value)";
-	$resultado      = mysql_query($sql);
+	$resultado      = mysqli_query($conexao, $sql);
+
 }
 
 // Envio dos Arquivos
@@ -129,7 +130,7 @@ if(file_exists($arquivo["tmp_name"]) and !empty($arquivo))
 	mail($email,$assunto,$mens,$headers);
 }
 
-mysql_close($conexao);
+mysqli_close($conexao);
 
 header("Location: painel.php");
 exit();

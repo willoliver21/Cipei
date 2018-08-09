@@ -7,8 +7,6 @@ error_reporting(0);
 include '../includes/conexao.php';
 
 
-//Sessão
-session_start();
 
 if (isset($_SESSION['usuario']))
 {
@@ -20,8 +18,8 @@ else
 	header("Location: login.php");
 }
 
-$dados = mysql_query("SELECT * FROM usuarios WHERE id = ".$codigoUsuario);
-$row_dados = mysql_fetch_assoc($dados);
+$dados = mysqli_query($conexao, "SELECT * FROM usuarios WHERE id = ".$codigoUsuario);
+$row_dados = mysqli_fetch_assoc($dados);
 
 ?>
 
@@ -130,15 +128,15 @@ $row_dados = mysql_fetch_assoc($dados);
 										WHERE au.id_usuario = '$codigoUsuario'";
 
 
-										$autores = mysql_query($sqlAutores);
+										$autores = mysqli_query($conexao, $sqlAutores);
 
-										if(mysql_num_rows($autores) > 0)
+										if(mysqli_num_rows($autores) > 0)
 										{
-											while($row_autores = mysql_fetch_assoc($autores))
+											while($row_autores = mysqli_fetch_assoc($autores))
 											{
 												?>
 												<p style="float: left;">
-													<input type="checkbox" id="inlineCheckbox1" name="autorcheck[]" value="<?php echo $row_autores['idAutor'] ?>" ><?php echo $row_autores['nomeAutor']; ?>
+													<input type="checkbox" id="inlineCheckbox1" name="autorcheck[]" value="<?php echo $row_autores['idAutor']; ?>" ><?php echo $row_autores['nomeAutor']; ?>
 													<h4 class="linha_autor">
 
 														<?php
